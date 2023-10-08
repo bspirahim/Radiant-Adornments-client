@@ -7,12 +7,12 @@ const Header = () => {
     const { user, logOut } = useContext(AuthContext);
     const navItems = <>
         <li><Link to='/'>Home</Link> </li>
-        <li><Link to='alltoys'>All Jewelry</Link> </li>
+        <li><Link to='allJewellary'>All Jewelry</Link> </li>
         <li><Link to='blog'>Blog</Link> </li>
         {
             user ? <>
-                <li><Link to='mytoys'>My Jewelry</Link> </li>
-                <li><Link to='addtoy'>Add Jewelry</Link> </li>
+                <li><Link to='myJewellary'>My Jewelry</Link> </li>
+                <li><Link to='addJewellary'>Add Jewelry</Link> </li>
             </>
                 : ''
 
