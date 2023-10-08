@@ -11,7 +11,7 @@ const AddJewellary = () => {
         event.preventDefault()
 
         const form = event.target;
-        const sellerName = form.email.value;
+        const sellerName = form.sellerName.value;
         const email = form.email.value;
         const jewellaryName = form.jewellaryName.value;
         const category = form.category.value;
@@ -61,7 +61,7 @@ const AddJewellary = () => {
 
     return (
         <div className='mt-10 mb-20 container mx-auto w-3/4'>
-            <h1 className='text-center text-3xl my-5 font-bold'>Add A Toy</h1>
+            <h1 className='text-center text-3xl my-5 font-bold'>Add Jewellary</h1>
             <form onSubmit={handleAddJewellary}>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                     <div className="form-control">

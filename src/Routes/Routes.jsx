@@ -20,8 +20,9 @@ const router = createBrowserRouter([
                 element:<Home></Home>
             },
             {
-                path: 'allJewellary',
-                element:<AllJewellary></AllJewellary>
+                path: '/jewellarys',
+                element:<AllJewellary></AllJewellary>,
+                loader: () => fetch('http://localhost:5000/jewellarys')
             },
             {
                 path: 'myJewellary',
