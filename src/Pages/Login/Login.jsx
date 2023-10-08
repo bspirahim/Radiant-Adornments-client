@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import Lottie from "lottie-react";
-import reader from "../../../../../../milestone-11/Assaignment-11/wonder-toy-client/public/login.json";
+import reader from "../../../public/login.json";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../Provider/AuthProvider';
-import SocialLogin from '../../../../../../milestone-11/Assaignment-11/wonder-toy-client/src/Pages/SocialLogin/SocialLogin';
+import SocialLogin from '../SocialLogin/SocialLogin';
 import { toast } from 'react-toastify';
-import useTitle from '../../../../../../milestone-11/Assaignment-11/wonder-toy-client/src/hooks/useTitle';
+import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
     useTitle('Login')

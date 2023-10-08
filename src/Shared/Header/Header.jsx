@@ -4,7 +4,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import { toast } from 'react-toastify';
 
 const Header = () => {
-    const { user, signOutUser } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     const navItems = <>
         <li><Link to='/'>Home</Link> </li>
         <li><Link to='alltoys'>All Jewelry</Link> </li>
@@ -21,7 +21,7 @@ const Header = () => {
     </>
 
     const handleSignOut = () => {
-        signOutUser()
+        logOut()
             .then(() => {
                 toast.success('Logged Out')
             })

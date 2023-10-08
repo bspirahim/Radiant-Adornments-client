@@ -40,10 +40,9 @@ const Register = () => {
                         form.reset();
                     })
                     .catch(error => { toast.error(error.message); });
+
                     toast.success('Successfully Registerd')
                     navigate(from, { replace: true })
-
-
                 })
                 .catch(error => {
                     toast.error(error.message)
