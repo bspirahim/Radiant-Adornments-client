@@ -7,6 +7,8 @@ import AllJewellary from "../Pages/AllJewellary/AllJewellary";
 import MyJewellary from "../Pages/MyJewellary/MyJewellary";
 import AddJewellary from "../Pages/AddJewellary/AddJewellary";
 import Blog from "../Pages/Blog/Blog";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 
 
@@ -14,6 +16,7 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement:<ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -26,7 +29,9 @@ const router = createBrowserRouter([
             },
             {
                 path: 'myJewellary',
-                element:<MyJewellary></MyJewellary>
+                element: <PrivateRoute>
+                    <MyJewellary></MyJewellary>
+                </PrivateRoute>
             },
             {
                 path: 'addJewellary',
