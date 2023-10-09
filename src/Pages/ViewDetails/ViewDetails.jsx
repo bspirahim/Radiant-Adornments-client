@@ -10,14 +10,9 @@ const ViewDetails = () => {
 
     return (
         <div>
-            <div className="relative w-full">
-                <img src='/banner/mytoy-banner.jpg' className="w-full" />
-                <div className="absolute w-full h-full flex items-center left-0 bottom-0 bg-[rgba(0,0,0,0.4)]">
-                    <div className='text-white w-2/4 mx-auto text-center space-y-7 '>
-                        <h2 className='text-5xl'>{jewellaryName}</h2>
-                    </div>
-                </div>
-            </div>
+
+            <h2 className='text-5xl text-center mt-4'>{jewellaryName}</h2>
+
 
             <div className='md:px-20 my-12 mx-auto'>
                 <div className="card lg:card-side bg-base-200 shadow-lg">
