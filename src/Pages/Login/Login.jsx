@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import Lottie from "lottie-react";
-import reader from "../../../public/login.json";
+import reader from "../../assets/login.json";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../Provider/AuthProvider';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { toast } from 'react-toastify';

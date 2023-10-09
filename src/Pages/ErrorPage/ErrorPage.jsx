@@ -2,7 +2,6 @@ import React from 'react';
 import Lottie from "lottie-react";
 import reader from "../../../public/error-page.json";
 import { Link } from 'react-router-dom';
-import useTitle from '../../hooks/useTitle';
 
 const ErrorPage = () => {
     return (

@@ -9,7 +9,6 @@ const AddJewellary = () => {
 
     const handleAddJewellary = event => {
         event.preventDefault()
-
         const form = event.target;
         const sellerName = form.sellerName.value;
         const email = form.email.value;
@@ -68,13 +67,13 @@ const AddJewellary = () => {
                         <label className="label">
                             <span className="label-text">Name</span>
                         </label>
-                        <input type="text" defaultValue={user?.displayName} name='sellerName' className="input input-bordered " required />
+                        <input readOnly type="text" defaultValue={user?.displayName} name='sellerName' className="input input-bordered " required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input type="email" defaultValue={user?.email} name='email' className="input input-bordered" required />
+                        <input readOnly type="email" defaultValue={user?.email} name='email' className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { toast } from 'react-toastify';
 
@@ -19,11 +19,13 @@ const Header = () => {
         }
 
     </>
+    const navigate = useNavigate()
 
     const handleSignOut = () => {
         logOut()
             .then(() => {
-                toast.success('Logged Out')
+                toast.success('Logged Out');
+                navigate('/', {replace:true})
             })
             .catch(error => {
                 toast.error(error.message)
@@ -40,13 +42,12 @@ const Header = () => {
                         {navItems}
                     </ul>
                 </div>
-                <Link to='/'>
-                    <img className='h-[50px]' src="/wonder-toy-logo.png" alt="" />
+                <Link to='/' className='text-2xl'>
+                    Radiant Adornments
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 items-center">
-
                     {navItems}
                 </ul>
             </div>
@@ -57,9 +58,8 @@ const Header = () => {
 
                             <div className='flex items-center'>
                                 <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
-                                    <img src={user?.photoURL ? user.photoURL : "/photoGallery/profile.png"} className='w-12 mr-4 rounded-full' alt="" />
+                                    <img src={user?.photoURL ? user.photoURL : `https://ui-avatars.com/api/?name=${user?.displayName}&color=7F9CF5&background=EBF4FF`} className='w-12 mr-4 rounded-full' alt="" />
                                 </div>
-
                                 <button onClick={handleSignOut} className="btn btn-outline btn-primary px-5">Logout</button>
                             </div>
 

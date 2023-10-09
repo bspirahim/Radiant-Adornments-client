@@ -1,64 +1,58 @@
-
 import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../Provider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 import MyJewellaryTable from './MyJewellaryTable';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const MyJewellary = () => {
-    const { user } = useContext(AuthContext)
-    const [myJewellarys, setMyJewellarys] = useState([])
+    useTitle('My Jewellary')
+    const { user } = useContext(AuthContext);
+    const [jewellarys, setJewellarys] = useState([])
 
-    const url = `http://localhost:5000/jewellarys?email=${user?.email}`
-    useEffect(() => {
-        fetch(url)
+    const reloadjewellarys = () => {
+        if(user){
+        fetch(`http://localhost:5000/my-jewellarys?email=${user?.email}`, {
+            method: 'GET'
+        })
             .then(res => res.json())
-            .then(data => setMyJewellarys(data))
-    }, []);
+            .then(res => {
+                console.log(res);
+                setJewellarys(res);
+            });
+        }
+    }
 
-    console.log(myJewellarys)
+    useEffect(reloadjewellarys, [user]);
 
     return (
-        <div className='md:px-20'>
-            <div className="relative w-full">
-                <img src='/banner/mytoy-banner.jpg' className="w-full" />
-                <div className="absolute w-full h-full flex items-center left-0 bottom-0 bg-[rgba(0,0,0,0.4)]">
-                    <div className='text-white w-2/4 mx-auto text-center space-y-7 '>
-                        <h2 className='text-5xl'>My Jewellarys - {myJewellarys.length}</h2>
-                    </div>
+        <>
+            <div className='md:px-20'>
+                <h2 className='text-5xl text-center mt-4'>My jewellarys - {jewellarys.length}</h2>
+
+                <div className="overflow-x-auto w-full my-12">
+                    <table className="table w-full">
+                        {/* head */}
+                        <thead>
+                            <tr>
+                                <th>Photo</th>
+                                <th>Jewellary Name</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Available Quantity</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+
+                        {
+                           jewellarys.length>0 && jewellarys.map(jewellary => <MyJewellaryTable
+                                key={jewellary._id}
+                                jewellary={jewellary}
+                            ></MyJewellaryTable>)
+                        }
+
+                    </table>
                 </div>
-            </div>
-
-
-            <div className="overflow-x-auto w-full my-12">
-                <table className="table w-full">
-                    {/* head */}
-                    <thead>
-                        <tr>
-                            <th>
-                                <label>
-                                    <input type="checkbox" className="checkbox" />
-                                </label>
-                            </th>
-                            <th>Photo</th>
-                            <th>Jewellary Name</th>
-                            <th>Sub-Category</th>
-                            <th>Price</th>
-                            <th>Available Quantity</th>
-                        </tr>
-                    </thead>
-
-                    {
-                        myJewellarys.map(jewellary => <MyJewellaryTable
-                            key={jewellary._id}
-                            jewellary={jewellary}
-                        >
-
-                        </MyJewellaryTable>)
-                    }
-
-                </table>
-            </div>
-        </div>
-    
+            </div >
+        </>
     );
 };
 

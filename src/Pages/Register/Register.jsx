@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import Lottie from "lottie-react";
-import reader from "../../../public/login.json";
+import reader from "../../assets/login.json";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { toast } from 'react-toastify';
@@ -41,7 +41,7 @@ const Register = () => {
                     })
                     .catch(error => { toast.error(error.message); });
 
-                    toast.success('Successfully Registerd')
+                    toast.success('Successfully Registered')
                     navigate(from, { replace: true })
                 })
                 .catch(error => {
