@@ -9,6 +9,7 @@ import AddJewellary from "../Pages/AddJewellary/AddJewellary";
 import Blog from "../Pages/Blog/Blog";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 
 
 
@@ -16,17 +17,22 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
-        errorElement:<ErrorPage></ErrorPage>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
-                element:<Home></Home>,
+                element: <Home></Home>,
                 loader: () => fetch('http://localhost:5000/jewellarys?limit=5')
             },
             {
                 path: '/jewellarys',
-                element:<AllJewellary></AllJewellary>,
+                element: <AllJewellary></AllJewellary>,
                 loader: () => fetch('http://localhost:5000/jewellarys')
+            },
+            {
+                path: '/jewellary/:id',
+                element: <ViewDetails></ViewDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/jewellarys/${params.id}`)
             },
             {
                 path: 'myJewellary',
@@ -36,11 +42,11 @@ const router = createBrowserRouter([
             },
             {
                 path: 'addJewellary',
-                element:<AddJewellary></AddJewellary>
+                element: <AddJewellary></AddJewellary>
             },
             {
                 path: 'blog',
-                element:<Blog></Blog>
+                element: <Blog></Blog>
             },
             {
                 path: '/login',
