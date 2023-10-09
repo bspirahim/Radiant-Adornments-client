@@ -22,17 +22,17 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/jewellarys?limit=5')
+                loader: () => fetch('https://radiant-adornaments-server.vercel.app/jewellarys?limit=5')
             },
             {
                 path: '/jewellarys',
                 element: <AllJewellary></AllJewellary>,
-                loader: () => fetch('http://localhost:5000/jewellarys')
+                loader: () => fetch('https://radiant-adornaments-server.vercel.app/jewellarys')
             },
             {
                 path: '/jewellary/:id',
                 element: <ViewDetails></ViewDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/jewellarys/${params.id}`)
+                loader: ({ params }) => fetch(`https://radiant-adornaments-server.vercel.app/jewellarys/${params.id}`)
             },
             {
                 path: 'myJewellary',

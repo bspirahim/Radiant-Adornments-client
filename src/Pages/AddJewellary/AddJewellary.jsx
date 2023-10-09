@@ -33,7 +33,7 @@ const AddJewellary = () => {
         }
         console.log(AddJewellary);
 
-        fetch('http://localhost:5000/jewellarys', {
+        fetch('https://radiant-adornaments-server.vercel.app/jewellarys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

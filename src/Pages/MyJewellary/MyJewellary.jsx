@@ -10,7 +10,7 @@ const MyJewellary = () => {
 
     const reloadjewellarys = () => {
         if(user){
-        fetch(`http://localhost:5000/my-jewellarys?email=${user?.email}`, {
+        fetch(`https://radiant-adornaments-server.vercel.app/my-jewellarys?email=${user?.email}`, {
             method: 'GET'
         })
             .then(res => res.json())
